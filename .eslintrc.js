@@ -41,6 +41,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'jsx-a11y/accessible-emoji': 0,
     'import/extensions': ['error', {
       js: 'never',
       jsx: 'never',

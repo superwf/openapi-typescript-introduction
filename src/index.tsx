@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
 
-import './style/step.css'
+import './style/global.less'
 import App from './App'
 // import * as serviceWorker from './serviceWorker';
 
@@ -11,7 +11,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('impress'),
   () => {
-    ;(global as any).impress().init()
+    global.impress().init()
   },
 )
 
