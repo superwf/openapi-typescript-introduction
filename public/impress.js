@@ -22,7 +22,7 @@
 // You are one of those who like to know how things work inside?
 // Let me show you the cogs that make impress.js run...
 ( function( document, window ) {
-    "use strict";
+
     var lib;
 
     // HELPER FUNCTIONS
@@ -125,19 +125,20 @@
     // `computeWindowScale` counts the scale factor between window size and size
     // defined for the presentation in the config.
     var computeWindowScale = function( config ) {
-        var hScale = window.innerHeight / config.height,
-            wScale = window.innerWidth / config.width,
-            scale = hScale > wScale ? wScale : hScale;
+      return 1;
+        // var hScale = window.innerHeight / config.height,
+        //     wScale = window.innerWidth / config.width,
+        //     scale = hScale > wScale ? wScale : hScale;
 
-        if ( config.maxScale && scale > config.maxScale ) {
-            scale = config.maxScale;
-        }
+        // if ( config.maxScale && scale > config.maxScale ) {
+        //     scale = config.maxScale;
+        // }
 
-        if ( config.minScale && scale < config.minScale ) {
-            scale = config.minScale;
-        }
+        // if ( config.minScale && scale < config.minScale ) {
+        //     scale = config.minScale;
+        // }
 
-        return scale;
+        // return scale;
     };
 
     // CHECK SUPPORT
@@ -932,7 +933,7 @@
  */
 
 ( function( document, window ) {
-    "use strict";
+
     var roots = [];
     var rootsCount = 0;
     var startingState = { roots: [] };
@@ -1165,7 +1166,7 @@
  */
 
 ( function( document, window ) {
-    "use strict";
+
     var roots = [];
 
     var libraryFactory = function( rootId ) {
@@ -1275,7 +1276,7 @@
 /* global clearTimeout, setTimeout, document */
 
 ( function( document ) {
-    "use strict";
+
 
     var autoplayDefault = 0;
     var currentStepTimeout = 0;
@@ -1442,7 +1443,7 @@
 /* global document */
 
 ( function( document ) {
-    "use strict";
+
 
     var canvas = null;
     var blackedOut = false;
@@ -1566,7 +1567,7 @@
 /* global markdown, hljs, mermaid, impress, document, window */
 
 ( function( document, window ) {
-    "use strict";
+
 
     var preInit = function() {
         if ( window.markdown ) {
@@ -1648,7 +1649,7 @@
  */
 /* global document */
 ( function( document ) {
-    "use strict";
+
     var root;
     var api;
 
@@ -1694,14 +1695,14 @@
 /* global document */
 
 ( function( document ) {
-    "use strict";
 
-    function enterFullscreen() {
-        var elem = document.documentElement;
-        if ( !document.fullscreenElement ) {
-            elem.requestFullscreen();
-        }
-    }
+
+    // function enterFullscreen() {
+    //     var elem = document.documentElement;
+    //     if ( !document.fullscreenElement ) {
+    //         elem.requestFullscreen();
+    //     }
+    // }
 
     function exitFullscreen() {
         if ( document.fullscreenElement ) {
@@ -1719,11 +1720,11 @@
         gc.addEventListener( document, "keydown", function( event ) {
 
             // 116 (F5) is sent by presentation remote controllers
-            if ( event.code === "F5" ) {
-                event.preventDefault();
-                enterFullscreen();
-                util.triggerEvent( root.querySelector( ".active" ), "impress:steprefresh" );
-            }
+            // if ( event.code === "F5" ) {
+            //     event.preventDefault();
+            //     enterFullscreen();
+            //     util.triggerEvent( root.querySelector( ".active" ), "impress:steprefresh" );
+            // }
 
             // 27 (Escape) is sent by presentation remote controllers
             if ( event.key === "Escape" || event.key === "F5" ) {
@@ -1772,7 +1773,7 @@
 /* global window, document, impress */
 
 ( function( document, window ) {
-    "use strict";
+
     var lib;
 
     document.addEventListener( "impress:init", function( event ) {
@@ -1939,7 +1940,7 @@
 /* global window, document */
 
 ( function( document, window ) {
-    "use strict";
+
     var rows = [];
     var timeoutHandle;
 
@@ -2056,7 +2057,7 @@
 /* global navigator, top, setInterval, clearInterval, document, window */
 
 ( function( document, window ) {
-    'use strict';
+
 
     // TODO: Move this to src/lib/util.js
     var triggerEvent = function( el, eventName, detail ) {
@@ -2848,7 +2849,7 @@
 /* global window, document */
 
 ( function( document, window ) {
-    "use strict";
+
     var root, api, gc, attributeTracker;
 
     attributeTracker = [];
@@ -3057,7 +3058,7 @@
  */
 /* global document, navigator */
 ( function( document ) {
-    "use strict";
+
 
     var getNextStep = function( el ) {
         var steps = document.querySelectorAll( ".step" );
@@ -3159,7 +3160,7 @@
  */
 /* global window, document */
 ( function( document, window ) {
-    "use strict";
+
     var timeout = 3;
     var timeoutHandle;
 
@@ -3225,7 +3226,7 @@
  */
 /* global document */
 ( function( document ) {
-    "use strict";
+
 
     // Wait for impress.js to be initialized
     document.addEventListener( "impress:init", function( event ) {
@@ -3409,7 +3410,7 @@
 /* global document */
 
 ( function( document ) {
-    'use strict';
+
     var toolbar;
     var api;
     var root;
@@ -3517,7 +3518,7 @@
 
 /* global document */
 ( function( document ) {
-    "use strict";
+
     var root;
     var stepids = [];
 
@@ -3622,7 +3623,7 @@
 /* global document, window */
 
 ( function( document, window ) {
-    "use strict";
+
 
     var startingState = {};
 
@@ -3808,7 +3809,7 @@
 /* global document, window */
 
 ( function( document, window ) {
-    "use strict";
+
 
     // Wait for impress.js to be initialized
     document.addEventListener( "impress:init", function( event ) {
@@ -3842,7 +3843,7 @@
 /* global document, window */
 
 ( function( document, window ) {
-    "use strict";
+
     var util;
 
     document.addEventListener( "impress:init", function( event ) {
@@ -3925,7 +3926,7 @@
  */
 /* global document, window */
 ( function( document, window ) {
-    "use strict";
+
 
     var stop = function( event ) {
         if ( ( !event ) || ( !event.target ) ) {
@@ -3956,7 +3957,7 @@
 /* global document, window */
 
 ( function( document, window ) {
-    "use strict";
+
 
     // Copied from core impress.js. Good candidate for moving to src/lib/util.js.
     var triggerEvent = function( el, eventName, detail ) {
@@ -4093,7 +4094,7 @@
  */
 /* global document, window */
 ( function( document, window ) {
-    "use strict";
+
 
     // Touch handler to detect swiping left and right based on window size.
     // If the difference in X change is bigger than 1/20 of the screen width,
@@ -4214,7 +4215,7 @@
 /* global document */
 
 ( function( document ) {
-    "use strict";
+
     var toolbar = document.getElementById( "impress-toolbar" );
     var groups = [];
 

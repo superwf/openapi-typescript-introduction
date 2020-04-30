@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
-import { Step1 } from './step/Step1'
-import { Step2 } from './step/Step2'
+import { Step1 } from './Step1'
+import { Step2 } from './Step2'
 
 function App() {
   return (
