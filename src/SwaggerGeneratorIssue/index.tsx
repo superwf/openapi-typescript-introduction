@@ -1,20 +1,21 @@
 import * as React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
-import stepStyle from '../../style/step.module.less'
-import { next } from '../../helper'
+import stepStyle from '../style/step.module.less'
+import { next } from '../helper'
 
 import s from './style.module.less'
 
-export const SwaggerWorldStep5 = () => {
+export const SwaggerGeneratorIssue = () => {
   return (
     <div
+      id="swaggerCodegenIssue"
       className={`step ${stepStyle.step} ${s.step5}`}
-      data-x="-3600"
-      data-y="900"
-      data-z="-2400"
-      data-rotate-x="190"
-      data-scale="1"
+      data-x="0"
+      data-y="0"
+      data-z="0"
+      data-rotate-x="150"
+      data-scale="10"
     >
       <h1>真实世界</h1>
       <h2>🕷 各种特殊字符，中文</h2>
@@ -69,9 +70,9 @@ export const SwaggerWorldStep5 = () => {
       </SyntaxHighlighter>
       <section>
         <h3 className="text-center">
-          下面来逛逛前端的地盘
+          解决工具
           <button type="button" onClick={next}>
-            <b>JavaScript</b>
+            <b>ts-gear</b>
           </button>
         </h3>
       </section>

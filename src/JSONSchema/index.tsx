@@ -1,14 +1,14 @@
 import * as React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
-import { next } from '../../helper'
-import { LinkOutside } from '../../LinkOutside'
+import { next } from '../helper'
+import { LinkOutside } from '../LinkOutside'
 
 import s from './style.module.less'
 
-export const SwaggerWorldStep1 = () => {
+export const JSONSchema = () => {
   return (
-    <div className={`step ${s.step1}`} data-x="-5000" data-y="0" data-z="200" data-rotate="0" data-scale="5">
+    <div id="JSONSchema" className={`step ${s.step1}`} data-x="-5000" data-y="0" data-z="0" data-rotate="0">
       <h1>JSON Schema</h1>
       <p>一种以JSON为基础格式的，定义数据结构的规范</p>
       <p>可以被各种编程语言解析，作为跨语言定义数据结构的桥梁</p>

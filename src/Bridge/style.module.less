@@ -1,18 +1,51 @@
 @top: 3em;
 
-.swaggerWrold {
+@circle-width: 14em;
+
+.world {
   position: absolute;
   border: 1px solid black;
+  border-radius: 50%;
+  width: @circle-width;
+  height: @circle-width;
+  align-items: center;
+  justify-content: center;
   top: @top;
-  left: -20em;
+  display: none;
+  &.active {
+    display: flex;
+  }
 }
-.gear {
-  text-align: center;
-  transform: scale(6);
+
+.swaggerWorld {
+  .world;
+  left: -19em;
 }
-.jsWorld {
-  position: absolute;
-  right: -20em;
+.bridgeImg {
+  width: 30em;
+  display: inline-block;
+}
+.bridge {
+  animation-delay: 2s;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  &.active {
+    display: flex;
+  }
+}
+.esWorld {
+  .world;
+  right: -16em;
   top: @top;
-  border: 1px solid black;
+  animation-delay: 1s;
 }
+.active {
+  display: block;
+}
+// :global {
+//   #bridge.active {
+//     display: block;
+//   }
+// }

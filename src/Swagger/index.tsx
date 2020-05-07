@@ -1,21 +1,14 @@
 import * as React from 'react'
 
-import stepStyle from '../../style/step.module.less'
-import { LinkOutside } from '../../LinkOutside'
-import { next } from '../../helper'
+import stepStyle from '../style/step.module.less'
+import { LinkOutside } from '../LinkOutside'
+import { next } from '../helper'
 
 // import s from './style.module.less'
 
-export const SwaggerWorldStep3 = () => {
+export const Swagger = () => {
   return (
-    <div
-      className={`step ${stepStyle.step}`}
-      data-x="-4900"
-      data-y="1070"
-      data-z="-1400"
-      data-rotate-x="-70"
-      data-scale="3"
-    >
+    <div id="swagger" className={`step ${stepStyle.step}`} data-x="-5000" data-y="300" data-z="0" data-rotate-x="-60">
       <h1>Swagger</h1>
       <p>使用Open Api作为标准的实际Api开发应用</p>
       <p>各种主流语言都有其一系列工具链的实现，例如: java、nodejs、golang等</p>

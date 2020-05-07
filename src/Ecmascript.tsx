@@ -1,19 +1,11 @@
 import * as React from 'react'
 
-import stepStyle from '../style/step.module.less'
-import { next } from '../helper'
+import stepStyle from './style/step.module.less'
+import { next } from './helper'
 
-export const JsWorldStep1 = () => {
+export const Ecmascript = () => {
   return (
-    <div
-      className={`step ${stepStyle.step}`}
-      data-x="10000"
-      data-y="600"
-      data-z="0"
-      data-rotate-x="70"
-      data-rotate-y="70"
-      data-scale="5"
-    >
+    <div id="ecmascript" className={`step ${stepStyle.step}`} data-x="5000" data-y="0" data-z="0" data-scale="1">
       <h1>前端语言之主</h1>
       <h2>多年来的即成事实名称: JavaScript</h2>
       <h2>户口本名称: EcmaScript</h2>

@@ -1,20 +1,20 @@
 import * as React from 'react'
 
-import stepStyle from '../../style/step.module.less'
-import { LinkOutside } from '../../LinkOutside'
-import { next } from '../../helper'
+import stepStyle from '../style/step.module.less'
+import { LinkOutside } from '../LinkOutside'
+import { next } from '../helper'
 
 import s from './style.module.less'
 
-export const SwaggerWorldStep2 = () => {
+export const OpenApi = () => {
   return (
     <div
+      id="openApi"
       className={`step ${stepStyle.step} ${s.step2}`}
-      data-x="-4500"
-      data-y="0"
-      data-z="-700"
-      data-rotate-y="80"
-      data-scale="4"
+      data-x="-5000"
+      data-y="-300"
+      data-z="0"
+      data-rotate-x="60"
     >
       <h1>Open Api</h1>
       <section>一种使用JSON Schema规范，定义Restful接口的规范</section>

@@ -1,31 +1,36 @@
 import * as React from 'react'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 
-import stepStyle from '../../style/step.module.less'
-import { LinkOutside } from '../../LinkOutside'
-import { next } from '../../helper'
+import stepStyle from '../style/step.module.less'
+import { LinkOutside } from '../LinkOutside'
+import { next } from '../helper'
 
 import s from './style.module.less'
 
-export const SwaggerWorldStep4 = () => {
+export const SwaggerGenerator = () => {
   return (
     <div
+      id="swaggerGenerator"
       className={`step ${stepStyle.step}`}
-      data-x="-4000"
-      data-y="600"
-      data-z="-1800"
-      data-rotate-x="70"
-      data-rotate-y="70"
-      data-scale="2"
+      data-x="0"
+      data-y="0"
+      data-z="0"
+      data-rotate-x="60"
+      data-scale="10"
     >
-      <h1>Swagger Codegen</h1>
+      <h1>Swagger Generator</h1>
       <p>利用标准OpenApi文档，直接生成各种语言代码的一系列工具。</p>
+      <h2>SwaggerCodegen</h2>
       <p>
         <LinkOutside href="https://github.com/swagger-api/swagger-codegen">语言生成器项目</LinkOutside>
-      </p>
-      <p>
+        <br />
         <LinkOutside href="https://github.com/swagger-api/swagger-codegen/tree/master/samples/client/petstore">
           各种语言例子
         </LinkOutside>
+      </p>
+      <h2>openapi-generator</h2>
+      <p>
+        <LinkOutside href="https://openapi-generator.tech/">项目地址</LinkOutside>
       </p>
       <p>生成的代码中，不止包含数据类型定义🛴</p>
       <p>而且包含直接请求对应接口的函数或方法 🚗。</p>
@@ -44,7 +49,7 @@ export const SwaggerWorldStep4 = () => {
         <h3 className="text-center">
           以上都是美好的世界
           <button type="button" onClick={next}>
-            <b>真实世界</b>
+            <b>下面进入 ☢ 真实世界☣</b>
           </button>
         </h3>
       </section>
