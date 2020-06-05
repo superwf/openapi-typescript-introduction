@@ -16,7 +16,7 @@ export const JSONSchema = () => {
       <p>
         <LinkOutside href="http://json-schema.org/">参考官网</LinkOutside>
       </p>
-      <h4>举个栗子</h4>
+      <h4>例如:</h4>
       <SyntaxHighlighter language="json">
         {`
   {

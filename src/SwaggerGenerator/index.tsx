@@ -22,8 +22,7 @@ export const SwaggerGenerator = () => {
       <p>利用标准OpenApi文档，直接生成各种语言代码的一系列工具。</p>
       <h2>SwaggerCodegen</h2>
       <p>
-        <LinkOutside href="https://github.com/swagger-api/swagger-codegen">语言生成器项目</LinkOutside>
-        <br />
+        <LinkOutside href="https://github.com/swagger-api/swagger-codegen">语言生成器项目</LinkOutside>{' '}
         <LinkOutside href="https://github.com/swagger-api/swagger-codegen/tree/master/samples/client/petstore">
           各种语言例子
         </LinkOutside>
@@ -37,7 +36,7 @@ export const SwaggerGenerator = () => {
       <p>对于强类型语言来说，只要接口描述清晰，则生成代码中的调用api请求函数将在开发阶段得到类型验证的支持。</p>
       <section className={s.process}>
         <div>请求参数(🐷)</div>
-        <div className={s.arrow1}>➡️</div>
+        <div className={s.arrow1}>➡️ </div>
         <div>
           返回数据(🍖)
           <br />
@@ -45,13 +44,11 @@ export const SwaggerGenerator = () => {
           或错误(🐾)
         </div>
       </section>
-      <section>
-        <h3 className="text-center">
-          以上都是美好的世界
-          <button type="button" onClick={next}>
-            <b>下面进入 ☢ 真实世界☣</b>
-          </button>
-        </h3>
+      <section className="text-center">
+        <h3>以上都是美好的世界</h3>
+        <button type="button" onClick={next}>
+          <b>下面进入 ☢ 真实世界☣</b>
+        </button>
       </section>
     </div>
   )

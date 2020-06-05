@@ -8,7 +8,7 @@ import { next } from '../helper'
 
 export const Swagger = () => {
   return (
-    <div id="swagger" className={`step ${stepStyle.step}`} data-x="-5000" data-y="300" data-z="0" data-rotate-x="-60">
+    <div id="swagger" className={`step ${stepStyle.step}`} data-x="-5000" data-y="-600" data-z="0" data-rotate-x="120">
       <h1>Swagger</h1>
       <p>使用Open Api作为标准的实际Api开发应用</p>
       <p>各种主流语言都有其一系列工具链的实现，例如: java、nodejs、golang等</p>

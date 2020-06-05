@@ -14,11 +14,11 @@ export const SwaggerGeneratorIssue = () => {
       data-x="0"
       data-y="0"
       data-z="0"
-      data-rotate-x="150"
+      data-rotate-x="-30"
       data-scale="10"
     >
-      <h1>真实世界</h1>
-      <h2>🕷 各种特殊字符，中文</h2>
+      <h1 className="text-center">真实世界</h1>
+      <h2>👻 特殊字符，比如中文等</h2>
       <SyntaxHighlighter language="json">
         {`
 {
@@ -46,7 +46,7 @@ export const SwaggerGeneratorIssue = () => {
 
         `}
       </SyntaxHighlighter>
-      <h2>🚳🚭📵🔞 各种关键字冲突与错误泛型</h2>
+      <h2>🚳🚭📵🔞 关键字冲突与错误泛型</h2>
       <SyntaxHighlighter language="json">
         {`
 {

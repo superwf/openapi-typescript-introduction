@@ -1,4 +1,5 @@
 import * as React from 'react'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import stepStyle from '../style/step.module.less'
 import { LinkOutside } from '../LinkOutside'
@@ -10,7 +11,7 @@ export const OpenApi = () => {
   return (
     <div
       id="openApi"
-      className={`step ${stepStyle.step} ${s.step2}`}
+      className={`step ${stepStyle.step} ${s.stepWrapper}`}
       data-x="-5000"
       data-y="-300"
       data-z="0"
@@ -24,13 +25,95 @@ export const OpenApi = () => {
       <p>
         主要应用版本V3、<b>V2</b>
       </p>
+      <h3>关键概念两点: paths & definitions</h3>
       <p>
-        该协议的杀手级应用
-        <span role="img" aria-label="next">
-          🎊🎉🎊🎉🎊🎉🎊🎉
-        </span>
+        <LinkOutside href="https://petstore.swagger.io/">示例工程</LinkOutside>
       </p>
+      <h4>paths</h4>
+      <SyntaxHighlighter language="json">
+        {`
+"/pet": {
+  "post": {
+    "parameters": [
+      {
+        "in": "body",
+        "name": "body",
+        "description": "Pet object that needs to be added to the store",
+        "required": true,
+        "schema": {
+          "$ref": "#/definitions/Pet"
+        }
+      }
+    ],
+    "responses": {
+      "405": {
+        "description": "Invalid input"
+      }
+    },
+  },
+  "put": {
+    "parameters": [
+      {
+        "in": "body",
+        "name": "body",
+        "description": "Pet object that needs to be added to the store",
+        "required": true,
+        "schema": {
+          "$ref": "#/definitions/Pet"
+        }
+      }
+    ],
+    "responses": {
+      "400": {
+        "description": "Invalid ID supplied"
+      }
+    },
+  }
+}`}
+      </SyntaxHighlighter>
+      <h4>definitions</h4>
+      <SyntaxHighlighter language="json">
+        {`
+"Pet": {
+  "type": "object",
+  "required": [
+    "name",
+    "photoUrls"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "category": {
+      "$ref": "#/definitions/Category"
+    },
+    "name": {
+      "type": "string",
+      "example": "doggie"
+    },
+    "photoUrls": {
+      "type": "array",
+      "xml": {
+        "wrapped": true
+      },
+      "items": {
+        "type": "string",
+        "xml": {
+          "name": "photoUrl"
+        }
+      }
+    }
+  }
+}`}
+      </SyntaxHighlighter>
       <section>
+        <p>
+          该协议的杀手级应用如下:
+          <span role="img" aria-label="next">
+            ↘️↘️↘️↘️↘️⬇️⬇️⬇️↙️↙️↙️↙️↙️
+          </span>
+        </p>
         <h3 className="text-center">
           <button type="button" onClick={next}>
             Swagger

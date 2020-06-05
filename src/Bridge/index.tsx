@@ -44,6 +44,7 @@ export const Bridge = () => {
     <div id="bridge" ref={wrapperRef} className={`${s.stepWrapper} step`} data-x="0" data-y="0" data-scale="10">
       <div className={s.swaggerWorld}>Swagger World</div>
       <div className={s.bridge}>
+        <h2 className={s.title}>代码生成器</h2>
         <img alt="" src="/asset/bridge.jpg" className={s.bridgeImg} />
       </div>
       <div className={s.esWorld}>Ecmascript World</div>

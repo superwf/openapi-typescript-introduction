@@ -10108,6 +10108,11 @@ shellwords@^0.1.1:
   resolved "http://registry.m.jd.com/shellwords/download/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha1-1rkYHBpI05cyTISHHvvPxz/AZUs=
 
+shrink-string@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/shrink-string/-/shrink-string-3.0.5.tgz#8fbd24960617427acc8bcfddb397ffc3f3f88132"
+  integrity sha512-mEHOvVAuAHwV3RoD3fWraouTX5WYYnfHjR553ndwMorNgKmCD67gJedy1GyspCbQwv4oyiVjtBnCA+zvImH/5w==
+
 side-channel@^1.0.2:
   version "1.0.2"
   resolved "http://registry.m.jd.com/side-channel/download/side-channel-1.0.2.tgz#df5d1abadb4e4bf4af1cd8852bf132d2f7876947"
