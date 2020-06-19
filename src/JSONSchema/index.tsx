@@ -40,7 +40,7 @@ export const JSONSchema = () => {
       </SyntaxHighlighter>
       <h3 className="text-center">
         <button type="button" onClick={next}>
-          接口描述协议: <b>OpenApi</b>
+          Next: 接口描述协议: <b>OpenApi</b>
         </button>
       </h3>
     </div>
