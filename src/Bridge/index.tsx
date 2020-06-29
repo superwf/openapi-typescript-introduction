@@ -41,10 +41,10 @@ export const Bridge = () => {
     }
   }, [])
   return (
-    <div id="bridge" ref={wrapperRef} className={`${s.stepWrapper} step`} data-x="0" data-y="0" data-scale="10">
+    <div id="bridge" ref={wrapperRef} className={`${s.swaggerWorld} step`} data-x="0" data-y="0" data-scale="10">
       <div className={s.swaggerWorld}>Swagger World</div>
       <div className={s.bridge}>
-        <h2 className={s.title}>代码生成器</h2>
+        <h2 className={s.active}>代码生成器</h2>
         <img alt="" src="/asset/bridge.jpg" className={s.bridgeImg} />
       </div>
       <div className={s.esWorld}>Ecmascript World</div>

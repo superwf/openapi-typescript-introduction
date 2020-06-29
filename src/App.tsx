@@ -1,5 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 
+import { Preface } from './Preface'
 import { JSONSchema } from './JSONSchema'
 import { OpenApi } from './OpenApi'
 import { Swagger } from './Swagger'
@@ -9,9 +10,10 @@ import { SwaggerGenerator } from './SwaggerGenerator'
 import { Bridge } from './Bridge'
 import { SwaggerGeneratorIssue } from './SwaggerGeneratorIssue'
 
-function App() {
+export const App = () => {
   return (
     <>
+      <Preface />
       <JSONSchema />
       <OpenApi />
       <Swagger />
@@ -25,5 +27,3 @@ function App() {
     </>
   )
 }
-
-export default App

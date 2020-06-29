@@ -1,79 +1,33 @@
 import * as React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
-import stepStyle from '../style/step.module.less'
 import { LinkOutside } from '../LinkOutside'
-import { next } from '../helper'
 
 import s from './style.module.less'
 
 export const OpenApi = () => {
   return (
-    <div
-      id="openApi"
-      className={`step ${stepStyle.step} ${s.stepWrapper}`}
-      data-x="-5000"
-      data-y="-300"
-      data-z="0"
-      data-rotate-x="60"
-    >
-      <h1>Open Api</h1>
-      <section>一种使用JSON Schema规范，定义Restful接口的规范</section>
-      <p>
-        <LinkOutside href="https://www.openapis.org/">参考官网</LinkOutside>
-      </p>
-      <p>
-        主要应用版本V3、<b>V2</b>
-      </p>
-      <h3>关键概念两点: paths & definitions</h3>
-      <p>
-        <LinkOutside href="https://petstore.swagger.io/">示例工程</LinkOutside>
-      </p>
-      <h4>paths</h4>
-      <SyntaxHighlighter language="json">
-        {`
-"/pet": {
-  "post": {
-    "parameters": [
-      {
-        "in": "body",
-        "name": "body",
-        "description": "Pet object that needs to be added to the store",
-        "required": true,
-        "schema": {
-          "$ref": "#/definitions/Pet"
-        }
-      }
-    ],
-    "responses": {
-      "405": {
-        "description": "Invalid input"
-      }
-    },
-  },
-  "put": {
-    "parameters": [
-      {
-        "in": "body",
-        "name": "body",
-        "description": "Pet object that needs to be added to the store",
-        "required": true,
-        "schema": {
-          "$ref": "#/definitions/Pet"
-        }
-      }
-    ],
-    "responses": {
-      "400": {
-        "description": "Invalid ID supplied"
-      }
-    },
-  }
-}`}
-      </SyntaxHighlighter>
-      <h4>definitions</h4>
-      <SyntaxHighlighter language="json">
-        {`
+    <div id="openApi" className={`step ${s.step}`} data-x="-5000" data-y="-300" data-z="0" data-rotate-x="60">
+      <h1 className="text-center title">Open Api</h1>
+      <h2>
+        <p>📖 概念: 一种使用 JSONSchema 规范，定义Restful接口的规范</p>
+        <p>⚙ 作用: 使用 JSONSchema 定义行为一致的，跨语言可用的接口</p>
+        <p>
+          📜 历史: 主要应用版本V3、<b>V2</b>
+        </p>
+        <p>
+          <LinkOutside href="https://www.openapis.org/">🌐 官网: https://www.openapis.org/ </LinkOutside>
+        </p>
+        <p className={s.imgBg}>
+          <img alt="rest" src="/asset/rest.svg" />
+        </p>
+        <h3>关键概念两点: paths & definitions</h3>
+        <p>
+          <LinkOutside href="https://petstore.swagger.io/">示例工程</LinkOutside>
+        </p>
+        基础数据结构————definitions
+        <SyntaxHighlighter language="json">
+          {`
 "Pet": {
   "type": "object",
   "required": [
@@ -106,20 +60,72 @@ export const OpenApi = () => {
     }
   }
 }`}
-      </SyntaxHighlighter>
-      <section>
-        <p>
-          该协议的杀手级应用如下:
-          <span role="img" aria-label="next">
-            ↘️↘️↘️↘️↘️⬇️⬇️⬇️↙️↙️↙️↙️↙️
-          </span>
-        </p>
-        <h3 className="text-center">
-          <button type="button" onClick={next}>
-            Swagger
-          </button>
-        </h3>
-      </section>
+        </SyntaxHighlighter>
+        请求数据结构———— paths
+        <SyntaxHighlighter language="json">
+          {`
+"get": {
+  "parameters": [
+    {
+      "name": "status",
+      "in": "query",
+      "required": true,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "available",
+          "pending",
+          "sold"
+        ],
+        "default": "available"
+      },
+      "collectionFormat": "multi"
+    }
+  ],
+  "responses": {
+    "200": {
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Pet"
+        }
+      }
+    },
+  },
+},
+"/pet": {
+  "put": {
+    "parameters": [
+      {
+        "in": "body",
+        "name": "body",
+        "required": true,
+        "schema": {
+          "$ref": "#/definitions/Pet"
+        }
+      }
+    ],
+    "responses": {
+      "400": {
+        "description": "Invalid ID supplied"
+      }
+    },
+  }
+}`}
+        </SyntaxHighlighter>
+        其他一些基础数据，例如:
+        <SyntaxHighlighter language="json">
+          {`
+{
+  "host": "petstore.swagger.io",
+  "basePath": "/v2",
+  ...
+}
+
+          `}
+        </SyntaxHighlighter>
+      </h2>
     </div>
   )
 }

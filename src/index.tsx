@@ -2,7 +2,7 @@ import * as React from 'react'
 import ReactDOM from 'react-dom'
 
 import './style/global.less'
-import App from './App'
+import { App } from './App'
 import 'animate.css'
 // import * as serviceWorker from './serviceWorker';
 
