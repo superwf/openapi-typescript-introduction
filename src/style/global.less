@@ -41,6 +41,13 @@ button {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
+.hidden {
+  display: none;
+}
+.invisible {
+  visibility: hidden;
+}
+
 .step {
   position: relative;
   padding: 1em;
@@ -146,150 +153,6 @@ h4 {
 }
 
 /*
-    Second step is nothing special, just a text with a link, so it doesn't need
-    any special styling.
-
-    Let's move to 'big thoughts' with centered text and custom font sizes.
-*/
-#big {
-  width: 600px;
-  text-align: center;
-  font-size: 60px;
-  line-height: 1;
-}
-
-#big strong,
-#big b {
-  display: block;
-  font-size: 250px;
-  line-height: 250px;
-}
-
-#big .thoughts {
-  font-size: 90px;
-  line-height: 150px;
-}
-
-/*
-    'Tiny ideas' just need some tiny styling.
-*/
-#tiny {
-  width: 500px;
-  text-align: center;
-}
-
-/*
-    This step has some animated text ...
-*/
-#ing {
-  width: 500px;
-}
-
-/*
-    ... so we define display to `inline-block` to enable transforms and
-    transition duration to 0.5s ...
-*/
-#ing b {
-  display: inline-block;
-  transition: 0.5s;
-}
-
-/*
-    ... and we want 'positioning` word to move up a bit when the step gets
-    `present` class ...
-*/
-#ing.present .positioning {
-  transform: translateY(-10px);
-}
-
-/*
-    ... 'rotating' to rotate a quarter of a second later ...
-*/
-#ing.present .rotating {
-  transform: rotate(-10deg);
-
-  transition-delay: 0.25s;
-}
-
-/*
-    ... and 'scaling' to scale down after another quarter of a second.
-*/
-#ing.present .scaling {
-  transform: scale(0.7);
-
-  transition-delay: 0.5s;
-}
-
-/*
-    The 'imagination' step is again some boring font-sizing.
-*/
-
-#imagination {
-  width: 600px;
-}
-
-#imagination .imagination {
-  font-size: 78px;
-}
-
-/*
-    And the "it's in 3D" step again brings some 3D typography - just for fun.
-
-    Because we want to position <span> elements in 3D we set transform-style to
-    `preserve-3d` on the paragraph.
-    It is not needed by webkit browsers, but it is in Firefox. It's hard to say
-    which behaviour is correct as 3D transforms spec is not very clear about it.
-*/
-#its-in-3d p {
-  transform-style: preserve-3d;
-}
-
-/*
-    Below we position each word separately along Z axis and we want it to transition
-    to default position in 0.5s when the step gets `present` class.
-
-    Quite a simple idea, but lot's of styles and prefixes.
-*/
-#its-in-3d span,
-#its-in-3d b {
-  display: inline-block;
-  transform: translateZ(40px);
-
-  transition: 0.5s;
-}
-
-#its-in-3d .have {
-  transform: translateZ(-40px);
-}
-
-#its-in-3d .you {
-  transform: translateZ(20px);
-}
-
-#its-in-3d .noticed {
-  transform: translateZ(-40px);
-}
-
-#its-in-3d .its {
-  transform: translateZ(60px);
-}
-
-#its-in-3d .in {
-  transform: translateZ(-10px);
-}
-
-#its-in-3d .footnote {
-  font-size: 32px;
-
-  transform: translateZ(-10px);
-}
-
-#its-in-3d.present span,
-#its-in-3d.present b {
-  transform: translateZ(0px);
-}
-
-/*
     The last step is an overview.
     There is no content in it, so we make sure it's not visible because we want
     to be able to click on other steps.
@@ -299,136 +162,68 @@ h4 {
   display: none;
 }
 
-/*
-    We also make other steps visible and give them a pointer cursor using the
-    `impress-on-` class.
-*/
+.hoverBigger {
+  transition: all;
+  transition-duration: 0.5s;
+  transform-origin: 0% 50%;
+  &:hover {
+    transform: scale(1.5);
+  }
+}
 .impress-on-overview .step {
   opacity: 1;
   cursor: pointer;
 }
 
 /*
-    Now, when we have all the steps styled let's give users a hint how to navigate
-    around the presentation.
-
-    The best way to do this would be to use JavaScript, show a delayed hint for a
-    first time users, then hide it and store a status in cookie or localStorage...
-
-    But I wanted to have some CSS fun and avoid additional scripting...
-
-    Let me explain it first, so maybe the transition magic will be more readable
-    when you read the code.
-
-    First of all I wanted the hint to appear only when user is idle for a while.
-    You can't detect the 'idle' state in CSS, but I delayed a appearing of the
-    hint by 5s using transition-delay.
-
-    You also can't detect in CSS if the user is a first-time visitor, so I had to
-    make an assumption that I'll only show the hint on the first step. And when
-    the step is changed hide the hint, because I can assume that user already
-    knows how to navigate.
-
-    To summarize it - hint is shown when the user is on the first step for longer
-    than 5 seconds.
-
-    The other problem I had was caused by the fact that I wanted the hint to fade
-    in and out. It can be easily achieved by transitioning the opacity property.
-    But that also meant that the hint was always on the screen, even if totally
-    transparent. It covered part of the screen and you couldn't correctly clicked
-    through it.
-    Unfortunately you cannot transition between display `block` and `none` in pure
-    CSS, so I needed a way to not only fade out the hint but also move it out of
-    the screen.
-
-    I solved this problem by positioning the hint below the bottom of the screen
-    with CSS transform and moving it up to show it. But I also didn't want this move
-    to be visible. I wanted the hint only to fade in and out visually, so I delayed
-    the fade in transition, so it starts when the hint is already in its correct
-    position on the screen.
-
-    I know, it sounds complicated ... maybe it would be easier with the code?
+color them from http://mayccoll.github.io/Gogh/
 */
-
-.hint {
-  /*
-        We hide the hint until presentation is started and from browsers not supporting
-        impress.js, as they will have a linear scrollable view ...
-    */
-  display: none;
-
-  /*
-        ... and give it some fixed position and nice styles.
-    */
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 200px;
-
-  background: rgba(0, 0, 0, 0.5);
-  color: #eee;
-  text-align: center;
-
-  font-size: 50px;
-  padding: 20px;
-
-  z-index: 100;
-
-  /*
-        By default we don't want the hint to be visible, so we make it transparent ...
-    */
-  opacity: 0;
-
-  /*
-        ... and position it below the bottom of the screen (relative to it's fixed position)
-    */
-  transform: translateY(400px);
-
-  /*
-        Now let's imagine that the hint is visible and we want to fade it out and move out
-        of the screen.
-
-        So we define the transition on the opacity property with 1s duration and another
-        transition on transform property delayed by 1s so it will happen after the fade out
-        on opacity finished.
-
-        This way user will not see the hint moving down.
-    */
-  transition: opacity 1s, transform 0.5s 1s;
+.color1 {
+  color: rgb(36, 37, 38);
+}
+.color2 {
+  color: rgb(248, 81, 27);
+}
+.color3 {
+  color: rgb(86, 87, 71);
+}
+.color4 {
+  color: rgb(250, 119, 29);
+}
+.color5 {
+  color: rgb(44, 112, 183);
+}
+.color6 {
+  color: rgb(240, 46, 79);
+}
+.color7 {
+  color: rgb(60, 161, 166);
+}
+.color8 {
+  color: rgb(173, 173, 173);
 }
 
-/*
-    Now we 'enable' the hint when presentation is initialized ...
-*/
-.impress-enabled .hint {
-  display: block;
+.color9 {
+  color: rgb(95, 172, 109);
 }
-
-/*
-    ... and we will show it when the first step (with id 'bored') is active.
-*/
-.impress-on-bored .hint {
-  /*
-        We remove the transparency and position the hint in its default fixed
-        position.
-    */
-  opacity: 1;
-
-  transform: translateY(0px);
-
-  /*
-        Now for fade in transition we have the oposite situation from the one
-        above.
-
-        First after 4.5s delay we animate the transform property to move the hint
-        into its correct position and after that we fade it in with opacity
-        transition.
-    */
-  transition: opacity 1s 5s, transform 0.5s 4.5s;
+.color10 {
+  color: rgb(247, 67, 25);
 }
-
-/*
-    That's all I have for you in this file.
-    Thanks for reading. I hope you enjoyed it at least as much as I enjoyed writing it
-    for you.
-*/
+.color11 {
+  color: rgb(116, 236, 76);
+}
+.color12 {
+  color: rgb(253, 195, 37);
+}
+.color13 {
+  color: rgb(51, 147, 202);
+}
+.color14 {
+  color: rgb(231, 94, 79);
+}
+.color15 {
+  color: rgb(79, 188, 230);
+}
+.color16 {
+  color: rgb(140, 115, 91);
+}

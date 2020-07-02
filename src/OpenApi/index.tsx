@@ -2,14 +2,16 @@ import * as React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import { LinkOutside } from '../LinkOutside'
+import { coordinates } from '../coordinate'
 
 import s from './style.module.less'
 
 export const OpenApi = () => {
   return (
-    <div id="openApi" className={`step ${s.step}`} data-x="-5000" data-y="-300" data-z="0" data-rotate-x="60">
+    <div className={`step ${s.step}`} {...coordinates.OpenApi}>
       <h1 className="text-center title">Open Api</h1>
       <h2>
+        <p>🔗 必要知识: Restful</p>
         <p>📖 概念: 一种使用 JSONSchema 规范，定义Restful接口的规范</p>
         <p>⚙ 作用: 使用 JSONSchema 定义行为一致的，跨语言可用的接口</p>
         <p>
@@ -21,7 +23,7 @@ export const OpenApi = () => {
         <p className={s.imgBg}>
           <img alt="rest" src="/asset/rest.svg" />
         </p>
-        <h3>关键概念两点: paths & definitions</h3>
+        <p>关键概念两点: paths & definitions</p>
         <p>
           <LinkOutside href="https://petstore.swagger.io/">示例工程</LinkOutside>
         </p>

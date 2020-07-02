@@ -1,30 +1,34 @@
 import * as React from 'react'
 
-import stepStyle from '../style/step.module.less'
 import { LinkOutside } from '../LinkOutside'
-import { next } from '../helper'
+import { coordinates } from '../coordinate'
 
-// import s from './style.module.less'
+import s from './style.module.less'
 
 export const Swagger = () => {
   return (
-    <div id="swagger" className={`step ${stepStyle.step}`} data-x="-5000" data-y="-600" data-z="0" data-rotate-x="120">
-      <h1>Swagger</h1>
-      <p>使用Open Api作为标准的实际Api开发应用</p>
-      <p>各种主流语言都有其一系列工具链的实现，例如: java、nodejs、golang等</p>
-      <p>
-        <LinkOutside href="https://swagger.io/">参考官网</LinkOutside>
-      </p>
-      <p>
-        工具链包括 <b>Swagger Editor</b>，<b>Swagger UI</b>
-      </p>
-      <section>
-        <h3 className="text-center">
-          <button type="button" onClick={next}>
-            <b>Swagger Codegen</b>
-          </button>
-        </h3>
-      </section>
+    <div className={`step ${s.step}`} {...coordinates.Swagger}>
+      <h1 className="title text-center">Swagger</h1>
+      <h2>
+        <p>📖 概念: 一种使用 OpenApi 规范，生成 JSONSchema格式 在线restful文档的一系列工具集的统称</p>
+        <p>🐾 作用范围: 各种主流语言都有其一系列工具链的实现，例如: java、nodejs、golang等</p>
+        <p>
+          <LinkOutside href="https://swagger.io/">🌐 官网: https://swagger.io/ </LinkOutside>
+        </p>
+        <p>
+          🛠 主要工具链包括 <b>Swagger UI</b> <b>Swagger Editor</b>等
+        </p>
+        <ul>
+          <li>
+            Swagger UI ---&gt;
+            <a href="https://petstore.swagger.io/?_ga=2.13122420.239870436.1593480985-199330297.1593480985">Demo</a>
+          </li>
+          <li>
+            Swagger Editor ---&gt;
+            <a href="https://editor.swagger.io/?_ga=2.53808363.239870436.1593480985-199330297.1593480985">Demo</a>
+          </li>
+        </ul>
+      </h2>
     </div>
   )
 }
