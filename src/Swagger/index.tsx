@@ -16,16 +16,21 @@ export const Swagger = () => {
           <LinkOutside href="https://swagger.io/">🌐 官网: https://swagger.io/ </LinkOutside>
         </p>
         <p>
-          🛠 主要工具链包括 <b>Swagger UI</b> <b>Swagger Editor</b>等
+          😹 左侧<b className="color10">PRO</b>
+          相关的工具基本都是直接使用<b className="color10">第三方服务</b>，考虑到数据安全的角度，可以忽略。
+        </p>
+        <p>
+          🛠 主要可用工具链为右侧<b className="color11">Open Souece</b>部分<b className="color12">Swagger Editor</b>、
+          <b className="color13">Swagger UI</b>、<b className="color14">Swagger Codegen</b>等
         </p>
         <ul>
           <li>
-            Swagger UI ---&gt;
-            <a href="https://petstore.swagger.io/?_ga=2.13122420.239870436.1593480985-199330297.1593480985">Demo</a>
+            Swagger Editor 在线编辑Oper Api实时查看结果
+            <a href="https://editor.swagger.io/">Demo</a>
           </li>
           <li>
-            Swagger Editor ---&gt;
-            <a href="https://editor.swagger.io/?_ga=2.53808363.239870436.1593480985-199330297.1593480985">Demo</a>
+            Swagger UI 根据Open Api的定义，为自己的站点自动生成一个友好的查看api的页面。
+            <a href="https://petstore.swagger.io/">Demo</a>
           </li>
         </ul>
       </h2>

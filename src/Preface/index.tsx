@@ -24,8 +24,10 @@ export const Preface: React.FC = () => {
           <li className="hoverBigger">什么是 Swagger？什么是 OpenApi？他们是什么关系？</li>
           <li className="hoverBigger">上述这些概念之间是什么关系？</li>
           <li className="hoverBigger">我了解了这些概念和他们之间的关系之后，能干什么？</li>
-          <li className="hoverBigger">针对前端的一些生成器最佳工具。</li>
         </ol>
+        <p className="hoverBigger indent" data-color="green">
+          3.1 针对前端的一些生成器最佳工具。
+        </p>
       </h3>
     </div>
   )

@@ -15,6 +15,10 @@ button {
   color: #204677;
 }
 
+li {
+  line-height: 1.5em;
+}
+
 .border-circle {
   border-radius: 50%;
   border: 1px solid #ccc;
@@ -162,17 +166,25 @@ h4 {
   display: none;
 }
 
+.bigger {
+  font-size: 2em;
+}
 .hoverBigger {
   transition: all;
   transition-duration: 0.5s;
   transform-origin: 0% 50%;
   &:hover {
     transform: scale(1.5);
+    color: attr(data-color);
   }
 }
 .impress-on-overview .step {
   opacity: 1;
   cursor: pointer;
+}
+
+.indent {
+  text-indent: 2em;
 }
 
 /*
