@@ -9,8 +9,8 @@ import s from './style.module.less'
 export const OpenApi = () => {
   return (
     <div className={`step ${s.step}`} {...coordinates.OpenApi}>
-      <h1 className="text-center title">Open Api</h1>
-      <h2>
+      <h1 className="text-center title color7">Open Api</h1>
+      <h2 className="color16">
         <p>🔗 必要知识: Restful</p>
         <p>📖 概念: 一种使用 JSONSchema 规范，定义Restful接口的规范</p>
         <p>⚙ 作用: 使用 JSONSchema 定义行为一致的，跨语言可用的接口</p>

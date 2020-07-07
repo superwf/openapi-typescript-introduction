@@ -9,8 +9,8 @@ import s from './style.module.less'
 export const JSONSchema = () => {
   return (
     <div className={`step ${s.step}`} {...coordinates.JSONSchema}>
-      <h1 className="text-center title">JSON Schema</h1>
-      <h2>
+      <h1 className="text-center title color12">JSON Schema</h1>
+      <h2 className="color8">
         <p>🔗 必要知识: JSON</p>
         <p>📖 概念: 一种以JSON为基础格式的，定义数据结构的规范</p>
         <p>⚙ 作用: 可以被各种编程语言解析，作为跨语言传递数据结构的桥梁</p>
@@ -19,7 +19,7 @@ export const JSONSchema = () => {
           <LinkOutside href="https://json-schema.org/"> 🌐 官网 https://json-schema.org/</LinkOutside>
         </p>
       </h2>
-      <h2>
+      <h2 className="color14">
         例如:
         <SyntaxHighlighter language="json">
           {`

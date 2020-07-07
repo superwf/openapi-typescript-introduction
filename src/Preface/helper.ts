@@ -11,7 +11,7 @@ export const addImageAnimateClass = (e: React.MouseEvent<HTMLHeadingElement>) =>
   const images = target.querySelectorAll('img')
   if (count === 0) {
     images[0].classList.remove('invisible')
-    images[0].classList.add('animate__bounceInLeft')
+    images[0].classList.add('animate__backInLeft')
     count += 1
     return
   }
