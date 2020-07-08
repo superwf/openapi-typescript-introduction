@@ -19,8 +19,18 @@ export const JSONSchema = () => {
           <LinkOutside href="https://json-schema.org/"> 🌐 官网 https://json-schema.org/</LinkOutside>
         </p>
       </h2>
-      <h2 className="color14">
-        例如:
+      <h2 className="color8">
+        例如，我们需要描述一个数据结构:
+        <SyntaxHighlighter language="typescript">
+          {`
+  interface ApiResponse {
+    code: number
+    type: string
+    message: string
+  }
+`}
+        </SyntaxHighlighter>
+        对应的JSONSchema描述:
         <SyntaxHighlighter language="json">
           {`
   {

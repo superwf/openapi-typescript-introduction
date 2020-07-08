@@ -12,10 +12,13 @@ export const OpenApi = () => {
       <h1 className="text-center title color7">Open Api</h1>
       <h2 className="color16">
         <p>🔗 必要知识: Restful</p>
-        <p>📖 概念: 一种使用 JSONSchema 规范，定义Restful接口的规范</p>
-        <p>⚙ 作用: 使用 JSONSchema 定义行为一致的，跨语言可用的接口</p>
+        <p>📖 概念: 一种使用 JSONSchema 定义Restful接口的规范。</p>
         <p>
-          📜 历史: 主要应用版本V3、<b>V2</b>
+          ⚙ 作用: 使用 JSONSchema 描述<b className="color12 fontSize1dot2">跨语言</b>可用的
+          <b className="color12 fontSize1dot2">数据结构与接口</b>定义。
+        </p>
+        <p>
+          📜 历史: 主要应用版本<b>v2、v3</b>，目前最新版本为3.0.3
         </p>
         <p>
           <LinkOutside href="https://www.openapis.org/">🌐 官网: https://www.openapis.org/ </LinkOutside>
@@ -23,82 +26,51 @@ export const OpenApi = () => {
         <p className={s.imgBg}>
           <img alt="rest" src="/asset/rest.svg" />
         </p>
-        <p>关键概念两点: paths & definitions</p>
         <p>
-          <LinkOutside href="https://petstore.swagger.io/">示例工程</LinkOutside>
+          关键概念两点: <b className="fontSize1dot2 color12">paths & definitions</b>
         </p>
-        基础数据结构————definitions
+        基础数据结构————<b className="fontSize1dot2 color12">definitions</b>
         <SyntaxHighlighter language="json">
           {`
-"Pet": {
-  "type": "object",
-  "required": [
-    "name",
-    "photoUrls"
-  ],
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64"
-    },
-    "category": {
-      "$ref": "#/definitions/Category"
-    },
-    "name": {
-      "type": "string",
-      "example": "doggie"
-    },
-    "photoUrls": {
-      "type": "array",
-      "xml": {
-        "wrapped": true
+  "Pet": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int64"
       },
-      "items": {
+      "name": {
         "type": "string",
-        "xml": {
-          "name": "photoUrl"
-        }
+        "example": "doggie"
+      },
+      "photoUrls": {
+        "type": "array"
       }
     }
-  }
-}`}
+  }`}
         </SyntaxHighlighter>
-        请求数据结构———— paths
+        请求数据结构———— <b className="fontSize1dot2 color12">paths</b>
         <SyntaxHighlighter language="json">
           {`
-"get": {
-  "parameters": [
-    {
-      "name": "status",
-      "in": "query",
-      "required": true,
-      "type": "array",
-      "items": {
-        "type": "string",
-        "enum": [
-          "available",
-          "pending",
-          "sold"
-        ],
-        "default": "available"
-      },
-      "collectionFormat": "multi"
-    }
-  ],
-  "responses": {
-    "200": {
-      "schema": {
+"/pet/findByStatus": {
+  "get": {
+    "parameters": [
+      {
+        "name": "status",
+        "in": "query",
+        "required": true,
         "type": "array",
         "items": {
-          "$ref": "#/definitions/Pet"
-        }
-      }
-    },
-  },
-},
-"/pet": {
-  "put": {
-    "parameters": [
+          "type": "string",
+          "enum": [
+            "available",
+            "pending",
+            "sold"
+          ],
+          "default": "available"
+        },
+        "collectionFormat": "multi"
+      },
       {
         "in": "body",
         "name": "body",
@@ -109,21 +81,32 @@ export const OpenApi = () => {
       }
     ],
     "responses": {
+      "200": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pet"
+          }
+        }
+      },
       "400": {
         "description": "Invalid ID supplied"
       }
     },
-  }
-}`}
+  },
+  }`}
         </SyntaxHighlighter>
         其他一些基础数据，例如:
         <SyntaxHighlighter language="json">
           {`
-{
-  "host": "petstore.swagger.io",
-  "basePath": "/v2",
-  ...
-}
+  {
+    "host": "petstore.swagger.io",
+    "basePath": "/v2",
+    "schemes": [
+      "https",
+      "http"
+    ],
+  }
 
           `}
         </SyntaxHighlighter>

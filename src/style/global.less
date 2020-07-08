@@ -1,10 +1,11 @@
 body {
-  font-family: "PT Sans", sans-serif;
+  // font-family: "PT Sans", sans-serif;
   min-height: 740px;
   line-height: 1;
   color: white;
   background-image: url(/asset/universe.jpg);
   background-size: 100% 100%;
+  user-select: none;
 }
 
 a {
@@ -79,11 +80,6 @@ h4 {
   }
 }
 
-/*
-    ... and we enhance the styles for impress.js.
-
-    Basically we remove the margin and make inactive steps a little bit transparent.
-*/
 .impress-enabled .step {
   margin: 0;
   opacity: 0.1;
@@ -94,79 +90,16 @@ h4 {
   opacity: 1;
 }
 
-/*
-    These 'slide' step styles were heavily inspired by HTML5 Slides:
-    http://html5slides.googlecode.com/svn/trunk/styles.css
-
-    ;)
-
-    They cover everything what you see on first three steps of the demo.
-
-    All impress.js steps are wrapped inside a div element of 0 size! This means that relative
-    values for width and height (example: `width: 100%`) will not work. You need to use pixel
-    values. The pixel values used here correspond to the data-width and data-height given to the
-    #impress root element. When the presentation is viewed on a larger or smaller screen, impress.js
-    will automatically scale the steps to fit the screen.
-*/
-.slide {
-  display: block;
-
-  width: 900px;
-  height: 700px;
-  padding: 40px 60px;
-
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-
-  color: rgb(102, 102, 102);
-  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-
-  font-family: "Open Sans", Arial, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
-  letter-spacing: -1px;
-}
-
-.slide q {
-  display: block;
-  font-size: 50px;
-  line-height: 72px;
-
-  margin-top: 100px;
-}
-
-.slide q strong {
-  white-space: nowrap;
-}
-
-/*
-    And now we start to style each step separately.
-
-    I agree that this may be not the most efficient, object-oriented and
-    scalable way of styling, but most of steps have quite a custom look
-    and typography tricks here and there, so they had to be styled separately.
-
-    First is the title step with a big <h1> (no room for padding) and some
-    3D positioning along Z axis.
-*/
-
 .title {
   font-size: 3em;
 }
 
-/*
-    The last step is an overview.
-    There is no content in it, so we make sure it's not visible because we want
-    to be able to click on other steps.
-
-*/
-#overview {
-  display: none;
+.fontSize1dot2 {
+  font-size: 1.2em;
+  margin: 0 0.2em;
 }
 
-.bigger {
+.doubleFontSize {
   font-size: 2em;
 }
 .hoverBigger {
@@ -178,17 +111,14 @@ h4 {
     color: attr(data-color);
   }
 }
-.impress-on-overview .step {
-  opacity: 1;
-  cursor: pointer;
-}
-
 .indent {
   text-indent: 2em;
 }
 
 /*
 color them from http://mayccoll.github.io/Gogh/
+
+Birds Of Paradise
 */
 .color1 {
   color: rgb(87, 61, 38);
@@ -238,4 +168,23 @@ color them from http://mayccoll.github.io/Gogh/
 }
 .color16 {
   color: rgb(255, 249, 213);
+}
+
+#overview {
+  display: none;
+}
+
+// 最后一步overflow，显示所有步骤title
+.impress-on-overview .step:not(.active) {
+  border: 2px ridge rgb(184, 211, 237);
+  border-radius: 1em;
+  opacity: 0.5;
+  cursor: pointer;
+  overflow: visible;
+  .title {
+    transform: scale(6);
+  }
+}
+.impress-on-overview #overview {
+  display: initial;
 }
