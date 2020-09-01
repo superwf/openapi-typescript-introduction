@@ -3,6 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import { LinkOutside } from '../LinkOutside'
 import { coordinates } from '../coordinate'
+import { assetPath } from '../assetPath'
 
 import s from './style.module.less'
 
@@ -72,8 +73,8 @@ export const SwaggerGenerator = () => {
         </p>
         <section className={s.process}>
           前后端对接流程表现为:
-          <img alt="deal" src="/asset/1.png" height="200" />
-          <img alt="deal" src="/asset/2.png" height="200" />
+          <img alt="deal" src={assetPath('/asset/1.png')} height="200" />
+          <img alt="deal" src={assetPath('/asset/2.png')} height="200" />
           <div className={s.compile}>
             更新service代码
             <br />
@@ -81,7 +82,7 @@ export const SwaggerGenerator = () => {
             <br />
             修正接口<b className="color14">人工介入</b>
           </div>
-          <img alt="deal" src="/asset/3.png" height="200" />
+          <img alt="deal" src={assetPath('/asset/3.png')} height="200" />
         </section>
       </h2>
       <h2 className={`color15 ${s.next}`}>

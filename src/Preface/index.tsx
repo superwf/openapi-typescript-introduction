@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { coordinates } from '../coordinate'
+import { assetPath } from '../assetPath'
 
 import s from './style.module.less'
 import { addImageAnimateClass } from './helper'
@@ -11,8 +12,8 @@ export const Preface: React.FC = () => {
       <h1 className="text-center title color4">前言</h1>
       <h2 className="align-center color8" onClick={addImageAnimateClass}>
         <b className="color8">1.</b>面向人群
-        <img className="animate__animated invisible" alt="serverCoder" src="/asset/serverCoder.jpg" />
-        <img className="animate__animated invisible" alt="clientCoder" src="/asset/clientCoder.jpg" />
+        <img className="animate__animated invisible" alt="serverCoder" src={assetPath('/asset/serverCoder.jpg')} />
+        <img className="animate__animated invisible" alt="clientCoder" src={assetPath('/asset/clientCoder.jpg')} />
       </h2>
       <h2 className="color8">
         <b>2.</b>概述

@@ -3,6 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import { coordinates } from '../coordinate'
 import { LinkOutside } from '../LinkOutside'
+import { assetPath } from '../assetPath'
 
 import s from './style.module.less'
 
@@ -81,7 +82,7 @@ export const TsGear: React.FC = () => {
               <b className="color6">mock</b>数据。 示例代码如下:
             </p>
             <p>
-              <img alt="tsgear" src="/asset/tsGearService.gif" width="100%" />
+              <img alt="tsgear" src={assetPath('/asset/tsGearService.gif')} width="100%" />
             </p>
             <p>
               代码组织方式特点:

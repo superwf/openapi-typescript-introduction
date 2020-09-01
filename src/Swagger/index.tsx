@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { LinkOutside } from '../LinkOutside'
 import { coordinates } from '../coordinate'
+import { assetPath } from '../assetPath'
 
 import s from './style.module.less'
 
@@ -15,7 +16,7 @@ export const Swagger = () => {
         <p>
           <LinkOutside href="https://swagger.io/">🌐 官网: https://swagger.io/ </LinkOutside>
         </p>
-        <img alt="swaggerTools" src="/asset/swaggerTools.png" />
+        <img alt="swaggerTools" src={assetPath('/asset/swaggerTools.png')} />
         <p>
           🚫 左侧<b className="color10">PRO</b>
           相关的工具基本都是直接使用<b className="color10">第三方服务</b>，考虑到数据安全的角度，可以忽略。

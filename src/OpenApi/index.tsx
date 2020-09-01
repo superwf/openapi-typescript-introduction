@@ -3,6 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import { LinkOutside } from '../LinkOutside'
 import { coordinates } from '../coordinate'
+import { assetPath } from '../assetPath'
 
 import s from './style.module.less'
 
@@ -24,7 +25,7 @@ export const OpenApi = () => {
           <LinkOutside href="https://www.openapis.org/">🌐 官网: https://www.openapis.org/ </LinkOutside>
         </p>
         <p className={s.imgBg}>
-          <img alt="rest" src="/asset/rest.svg" />
+          <img alt="rest" src={assetPath('/asset/rest.svg')} />
         </p>
         <p>
           关键概念两点: <b className="fontSize1dot2 color12">paths & definitions</b>

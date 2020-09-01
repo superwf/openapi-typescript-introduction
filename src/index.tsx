@@ -16,6 +16,10 @@ ReactDOM.render(
   },
 )
 
+if (process.env.NODE_ENV === 'production') {
+  document.body.style.backgroundImage = '/wangfan15/swagger-generator/public/asset/universe.jpg'
+}
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
