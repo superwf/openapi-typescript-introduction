@@ -3,18 +3,22 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "downlevelIteration": true,
+    "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
+    "sourceMap": true,
     "jsx": "react",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "baseUrl": ".",
+    "strictPropertyInitialization": false,
+    "plugins": [{ "name": "typescript-plugin-css-modules", "options": { "customMatcher": "\\.module\\.less$" } }]
   },
-  "include": ["src"]
+  "include": ["src", "webpack.config.ts"]
 }
