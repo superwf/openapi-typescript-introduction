@@ -6,7 +6,10 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>About Swagger Generator</title>
-    <link href="impress-common.css" rel="stylesheet" />
+    <link
+      href="<%=htmlWebpackPlugin.options.assetsPath %>/impress-common.css"
+      rel="stylesheet"
+    />
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link
@@ -26,6 +29,6 @@
       data-perspective="1000"
     ></div>
     <div id="impress-toolbar"></div>
-    <script src="impress.js"></script>
+    <script src="<%=htmlWebpackPlugin.options.assetsPath %>/impress.js"></script>
   </body>
 </html>

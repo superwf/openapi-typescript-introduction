@@ -189,6 +189,7 @@ export default async () => {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       inject: true,
+      assetsPath: isProd ? '/wangfan15/swagger-generator/public' : '',
       cdn: cdn
         ? cdn.files[NODE_ENV as 'development' | 'production']
             .map((src: string) => `<script rel="preload" src="${cdn.host}${src}"></script>`)
