@@ -1,9 +1,12 @@
 import * as path from 'path'
+import { join } from 'path'
 
 import * as rimraf from 'rimraf'
-import { Configuration, DefinePlugin, NamedModulesPlugin } from 'webpack'
+import { Configuration, DefinePlugin } from 'webpack'
 
 import { cdn } from './cdn'
+
+import CopyWebpackPlugin = require('copy-webpack-plugin')
 
 import ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 import HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -32,8 +35,8 @@ export default async () => {
       main: [resolveRoot('src/index.tsx')],
     },
     output: {
-      path: resolveRoot('.'),
-      publicPath: isProd ? '/wangfan15/swagger-generator/' : '/',
+      path: resolveRoot('dist'),
+      publicPath: isProd ? '/openapi-typescript-introduction' : '/',
       filename: 'static/[name].js',
       chunkFilename: 'static/[name]-chunk-[chunkhash:5].js',
     },
@@ -189,7 +192,7 @@ export default async () => {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       inject: true,
-      assetsPath: isProd ? '/wangfan15/swagger-generator/public' : '',
+      assetsPath: isProd ? '/openapi-typescript-introduction/static' : '',
       cdn: cdn
         ? cdn.files[NODE_ENV as 'development' | 'production']
             .map((src: string) => `<script rel="preload" src="${cdn.host}${src}"></script>`)
@@ -198,7 +201,6 @@ export default async () => {
       extra: cdn ? cdn.extra : '',
     }),
     // new ResourceHintWebpackPlugin(),
-    new NamedModulesPlugin(),
     new DefinePlugin({
       'process.env': {
         NODE_ENV: `"${NODE_ENV}"`,
@@ -215,13 +217,26 @@ export default async () => {
   if (isProd) {
     rimraf.sync('./static/*')
     config.devtool = false
-    // config.plugins.push(
-    //   new CompressionPlugin({
-    //     test: /\.(js|css|html|svg|doc|txt|map)$/,
-    //     threshold: 2048,
-    //   }),
-    //   new OptimizeCSSAssetsPlugin(),
-    // )
+    config.plugins.push(
+      new CopyWebpackPlugin([
+        {
+          from: './public/asset',
+          to: join(__dirname, '/dist/asset'),
+        },
+        {
+          from: './public/manifest.json',
+          to: join(__dirname, '/dist'),
+        },
+        {
+          from: './public/impress.js',
+          to: join(__dirname, '/dist/static'),
+        },
+        {
+          from: './public/impress-common.css',
+          to: join(__dirname, '/dist/static'),
+        },
+      ]),
+    )
   } else {
     config.plugins.push(
       new ForkTsCheckerWebpackPlugin({

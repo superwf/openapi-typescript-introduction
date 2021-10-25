@@ -1,5 +1,5 @@
 {
-  "name": "open-api-demo",
+  "name": "openapi-typescript-introduction",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,7 @@
     "@types/jest": "^24.0.0",
     "@types/lodash": "^4.14.157",
     "@types/node": "^12.0.0",
+    "@types/copy-webpack-plugin": "^4.4.3",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
@@ -72,6 +73,7 @@
     "webpack": "4.42.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-manifest-plugin": "2.2.0",
+    "copy-webpack-plugin": "^4.5.1",
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {

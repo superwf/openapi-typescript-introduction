@@ -8,8 +8,7 @@ const reactVersion = require('react/package.json').version
 const regeneratorRuntimeVersion = require('regenerator-runtime/package.json').version
 
 // 根据开发环境注入不同的cdn文件
-// const prefix = 'https://unpkg.com/'
-const host = 'http://unpkg.jd.com/'
+const host = 'https://unpkg.com/'
 
 const externals: ExternalsElement[] = [
   {

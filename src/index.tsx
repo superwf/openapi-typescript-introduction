@@ -17,7 +17,7 @@ ReactDOM.render(
 )
 
 if (process.env.NODE_ENV === 'production') {
-  document.body.style.backgroundImage = 'url(/wangfan15/swagger-generator/public/asset/universe.jpg)'
+  document.body.style.backgroundImage = 'url(/openapi-typescript-introduction/asset/universe.jpg)'
 }
 
 // If you want your app to work offline and load faster, you can change
